@@ -9,7 +9,8 @@ var vm = new Vue({
   data: {
     randomList: [{ message: "gogogogogogo!" }, { message: "que!" }],
     userGo: null,
-    id: 1
+    id: 1,
+    count: null
   },
   methods: {
     addToList: function() {

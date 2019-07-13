@@ -31,14 +31,30 @@
         <li v-for="item in randomList" :key="item.id">
           {{ item.message }}
         </li>
-        <v-flex xs12 sm6 md3 style="font-size: 4vmin;margin: 20% 35% 0 35%">
+        <v-flex xs12 sm6 md3 style="font-size: 4vmin;margin: 15% 35% 0 35%">
           <v-text-field
+            label="Text"
             placeholder="来点啊噗噜派.."
             v-model="userGo"
             v-on:blur="addToList"
           ></v-text-field>
         </v-flex>
-        <v-btn outline color="indigo" v-on:click="randomResult">Finish</v-btn>
+        <v-flex xs12 sm6 md3 style="font-size: 4vmin;margin: 2% 35% 0 35%">
+          <v-text-field
+            label="Num"
+            placeholder="1"
+            v-model="count"
+          ></v-text-field>
+        </v-flex>
+        <v-btn
+          sm6
+          outline
+          color="indigo"
+          v-on:click="randomResult"
+          style="margin: 0 35% 0 35%;
+          font-size: 2vmin"
+          >Finish</v-btn
+        >
       </ul>
     </div>
     <script src="main.js"></script>
