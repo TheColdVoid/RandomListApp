@@ -15,6 +15,11 @@ var vm = new Vue({
     addToList: function() {
       this.randomList.push(new Go(this.userGo));
       this.userGo = null;
+    },
+    randomChoice: function() {},
+    randomResult: function() {
+      // this.randomList = randomChoice();
+      alert("hahaXD");
     }
   }
 });
