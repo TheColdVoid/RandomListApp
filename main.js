@@ -8,6 +8,7 @@ var vm = new Vue({
   el: "#randomGo",
   data: {
     randomList: [{ message: "gogogogogogo!" }, { message: "que!" }],
+    resultList: [],
     userGo: null,
     id: 1,
     count: null
@@ -19,8 +20,8 @@ var vm = new Vue({
     },
     randomChoice: function() {},
     randomResult: function() {
-      // this.randomList = randomChoice();
-      alert("hahaXD");
+      this.resultList = randomChoice();
+      
     }
   }
 });
