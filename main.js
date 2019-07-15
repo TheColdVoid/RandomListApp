@@ -1,27 +1,23 @@
-class Go {
-  constructor(userGo) {
-    this.message = userGo;
-    this.id = vm.id++;
-  }
-}
 var vm = new Vue({
   el: "#randomGo",
   data: {
     randomList: [{ message: "gogogogogogo!" }, { message: "que!" }],
     resultList: [],
-    userGo: null,
+    userGo: "",
     id: 1,
     count: null
   },
   methods: {
     addToList: function() {
-      this.randomList.push(new Go(this.userGo));
+      this.randomList.push({ message: this.userGo, id: this.id++ });
       this.userGo = null;
     },
-    randomChoice: function() {},
-    randomResult: function() {
-      this.resultList = randomChoice();
-      
+    randomChoice: function(count,arrayGo) {
+      var arrangedList;
+      return arrangedList;//输出随机排好的数组
+    },
+    showResult: function() {
+      this.resultList = randomChoice(this.count,this.randomList);
     }
   }
 });
