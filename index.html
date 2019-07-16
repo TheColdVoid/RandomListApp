@@ -22,16 +22,42 @@
         margin: 0 35% 0 35%;
         font-size: 4vmin;
       }
+
+      #list2 {
+        margin: 5% 0 0 0;
+      }
+      p {
+        width: 10em;
+        margin: 0 35% 0 35%;
+        font-size: 4vmin;
+      }
+      button {
+        color: #987cb9;
+			background: #fff;
+			border: 1px solid #987cb9;
+			border-radius: 12px;
+			position: sticky;
+			left: 65%;
+      width:40px;
+      
+      }
     </style>
   </head>
 
   <body>
     <div id="randomGo">
       <ul id="list">
-        <li v-for="item in randomList" :key="item.id">
-          {{ item.message }}
-        </li>
-        <v-flex xs12 sm6 md3 style="font-size: 4vmin;margin: 15% 35% 0 35%">
+
+        <random-list v-for="item in randomList" :go="item" 
+        @remove-go="removeGo">
+          
+        </random-list>
+        <div id ="list2">
+        <p v-for="item in resultList" >
+          {{ item }}
+        </p>
+        </div>
+        <v-flex xs12 sm6 md3 style="font-size: 4vmin;margin: 5% 35% 0 35%">
           <v-text-field
             label="Text"
             placeholder="来点啊噗噜派.."
@@ -46,17 +72,12 @@
             v-model="count"
           ></v-text-field>
         </v-flex>
-        <v-btn
-          sm6
-          outline
-          color="indigo"
-          v-on:click="randomResult"
-          style="margin: 0 35% 0 35%;
-          font-size: 2vmin"
-          >Finish</v-btn
-        >
+        <v-btn sm6 outline color="indigo" v-on:click="showResult" style="margin: 0 60% 0 0;
+                  font-size: 2vmin">Finish</v-btn>
       </ul>
+      
     </div>
+    
   </body>
-<script src="main.js"></script>
+  <script src="main.js"></script>
 </html>
