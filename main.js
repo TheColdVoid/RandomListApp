@@ -11,11 +11,11 @@ var vm = new Vue({
     'random-list': {
       props: ['go'],
       methods: {
-        callDelGo: function(id){
-          this.$emit('call-delgo',id);
+        onRemoveGo: function(id){
+          this.$emit('remove-go',id);
         }
       },
-      template: '<div><li>{{go.message}}</li><button v-on:click="callDelGo(go.id)">x</button></div>'
+      template: '<div><li>{{go.message}}</li><button v-on:click="onRemoveGo(go.id)">x</button></div>'
     }
   },
   methods: {
@@ -30,7 +30,7 @@ var vm = new Vue({
     showResult: function() {
       this.resultList = randomChoice(this.count,this.randomList);
     },
-    delGo: function(id){
+    removeGo: function(id){
       this.randomList.splice(id,1);
       var i;
       for(i=0;i<this.randomList.length;i++){     // 遍历重排id值，我也想用map啊嘤嘤嘤

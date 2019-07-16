@@ -47,7 +47,7 @@
     <div id="randomGo">
       <ul id="list">
         <random-list v-for="item in randomList" :go="item" 
-        @call-delgo="delGo":key="item.id">
+        @remove-go="removeGo":key="item.id">
           
         </random-list>
         <div id ="list2">
