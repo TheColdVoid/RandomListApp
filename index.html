@@ -10,6 +10,8 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+    <script src="https://cdn.bootcss.com/lodash.js/4.17.14/lodash.min.js"></script>
+    <script src="util.js"></script>
 
     <title>Random Go!!XD</title>
     <style>
@@ -39,7 +41,7 @@
 			position: sticky;
 			left: 65%;
       width:40px;
-      
+
       }
     </style>
   </head>
@@ -48,9 +50,9 @@
     <div id="randomGo">
       <ul id="list">
 
-        <random-list v-for="item in randomList" :go="item" 
+        <random-list v-for="item in randomList" :go="item"
         @remove-go="removeGo">
-          
+
         </random-list>
         <div id ="list2">
         <p v-for="item in resultList" >
@@ -75,9 +77,9 @@
         <v-btn sm6 outline color="indigo" v-on:click="showResult" style="margin: 0 60% 0 0;
                   font-size: 2vmin">Finish</v-btn>
       </ul>
-      
+
     </div>
-    
+
   </body>
   <script src="main.js"></script>
 </html>

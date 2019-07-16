@@ -23,16 +23,12 @@ var vm = new Vue({
       this.randomList.push(this.userGo);
       this.userGo = null;
     },
-    randomChoice: function(count,arrayGo) {
-      var arrangedList;
-      return arrangedList;//输出随机排好的数组
-    },
     showResult: function() {
       this.resultList = randomChoice(this.count,this.randomList);
     },
     removeGo: function(message){
       this.randomList = this.randomList.filter(it => it !== message);
-      
+
       }
     }
   })
