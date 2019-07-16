@@ -47,12 +47,12 @@
     <div id="randomGo">
       <ul id="list">
         <random-list v-for="item in randomList" :go="item" 
-        @remove-go="removeGo":key="item.id">
+        @remove-go="removeGo">
           
         </random-list>
         <div id ="list2">
-        <p v-for="item in resultList" :key="item.id">
-          {{ item.message }}
+        <p v-for="item in resultList" >
+          {{ item }}
         </p>
         </div>
         <v-flex xs12 sm6 md3 style="font-size: 4vmin;margin: 5% 35% 0 35%">
