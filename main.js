@@ -21,7 +21,7 @@ var vm = new Vue({
   methods: {
     addToList: function() {
       this.currList.push(this.newGo);
-      this.newGo = null;
+      this.newGo = "";
     },
     randomChoice: function(count,arrayGo) {
       var arrangedList;
