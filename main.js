@@ -5,8 +5,7 @@ var vm = new Vue({
     resultList: [],
     newGo: "",
     id: 0,
-    count: 1,
-    isShow: false
+    count: 1
   },
   components: {
     'random-list': {
@@ -30,7 +29,6 @@ var vm = new Vue({
     },
     setResult: function() {
       this.resultList = randomChoice(this.count,this.currList);
-      this.isShow = true;
     },
     removeGo: function(message){
       this.currList = this.currList.filter(it => it !== message);
