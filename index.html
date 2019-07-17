@@ -9,6 +9,7 @@
       href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css"
       rel="stylesheet"
     />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
     <script src="https://cdn.bootcss.com/lodash.js/4.17.14/lodash.min.js"></script>
     <script src="util.js"></script>
@@ -52,6 +53,7 @@
         </random-list>
         <hr></hr>
         <div id="list2">
+          <p v-show="isShow">结果:</p>
           <p v-for="item in resultList">
             {{ item }}
           </p>
@@ -64,7 +66,7 @@
           ></v-text-field>
         </v-flex>
         <v-btn fab dark small color="teal" @click="addToList">
-          <v-icon dark>+</v-icon>
+          <v-icon dark>add</v-icon>
         </v-btn>
         <v-flex xs12 sm6 md3 style="font-size: 4vmin;margin: 2% 35% 0 35%">
           <v-text-field
@@ -80,8 +82,7 @@
           small
           color="teal"
           v-on:click="setResult"
-          style="margin: 0 60% 0 0;
-                  font-size: 2vmin"
+          
         >
           <v-icon dark>√</v-icon>
         </v-btn>
