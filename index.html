@@ -34,8 +34,9 @@
         border: 1px solid rgb(15, 131, 125);
         border-radius: 12px;
         position: sticky;
-        left: 65%;
+        left: 55%;
         width: 40px;
+
       }
 
       hr {
@@ -47,15 +48,15 @@
       }
       article {
         flex: 1;
-        margin: 0 15% 0 15%;
-        width: 4vm;
+        margin: 0 0 0 12%;
+        width: 6vm;
       }
     </style>
   </head>
 
   <body>
     <div id="randomGo">
-      <v-flex xs12 sm6 md3 style="font-size: 4vmin;width:5vm;height:0%;margin: 0 40% 0 30%">
+      <v-flex xs12 sm6 md3 style="font-size: 4vmin;width:5vm;height:25px;margin: 0 40% 0 30%">
         <v-text-field
           label="Text"
           placeholder="来点啊噗噜派.."
@@ -63,10 +64,10 @@
         ></v-text-field>
       </v-flex>
       <v-btn fab dark small color="teal" @click="addToList"
-      style="left:60%;">
+      style="left:60%;margin:0 0 0 6%;">
         <v-icon dark>add</v-icon>
       </v-btn>
-      <v-flex xs12 sm6 md3 style="font-size: 4vmin;width:5vm;height:0%;margin: 0 40% 0 30%">
+      <v-flex xs12 sm6 md3 style="font-size: 4vmin;width:5vm;height:25px;margin: 0 40% 0 30%">
         <v-text-field
           label="Num"
           placeholder="1"
@@ -74,18 +75,22 @@
         ></v-text-field>
       </v-flex>
       <v-btn fab dark small color="teal" v-on:click="setResult"
-      style="left:60%;margin: 0 0 2% 0">
+      style="left:60%;margin: 0 0 2% 6%">
         <v-icon dark>done</v-icon>
       </v-btn>
       <hr>
       </hr>
       <section>
         <article id="randomlist">
-          <random-list  v-for="item in currList" :go="item" @remove-go="removeGo">
+          <v-icon color="teal lighten-2" large>sentiment_dissatisfied</v-icon>
+          <random-list  v-for="item in currList" :go="item" @remove-go="removeGo"
+          style="margin:0 0 0 15%;color:rgb(32, 139, 182)">
           </random-list>
         </article>
         <article id="resultlist">
-          <p v-for="item in resultList">
+          <v-icon color="teal lighten-2" large>mood</v-icon>
+          <p v-for="item in resultList"
+          style="margin:0 0 8% 15%;color:rgb(32, 139, 182)">
             {{ item }}
           </p>
         </article>
