@@ -9,6 +9,7 @@
       href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css"
       rel="stylesheet"
     />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
     <script src="https://cdn.bootcss.com/lodash.js/4.17.14/lodash.min.js"></script>
     <script src="util.js"></script>
@@ -19,11 +20,7 @@
         margin: 10vh 0 20vh 0;
       }
 
-      li {
-        width: 10em;
-        margin: 0 35% 0 35%;
-        font-size: 4vmin;
-      }
+      
 
       #list2 {
         margin: 5% 0 0 0;
@@ -34,39 +31,43 @@
         font-size: 4vmin;
       }
       button {
-        color: #987cb9;
-			background: #fff;
-			border: 1px solid #987cb9;
-			border-radius: 12px;
-			position: sticky;
-			left: 65%;
-      width:40px;
+        color: rgb(15, 131, 125);
+        background: #fff;
+        border: 1px solid rgb(15,131,125);
+        border-radius: 12px;
+        position: sticky;
+        left: 65%;
+        width: 40px;
+      }
 
+      hr {
+        margin: 5% 40% 5% 35%;
       }
     </style>
   </head>
 
   <body>
     <div id="randomGo">
-      <ul id="list">
-
-        <random-list v-for="item in randomList" :go="item"
-        @remove-go="removeGo">
-
+      
+        <random-list v-for="item in currList" :go="item" @remove-go="removeGo">
         </random-list>
-        <div id ="list2">
-        <p v-for="item in resultList" >
-          {{ item }}
-        </p>
+        <hr></hr>
+        <div id="list2">
+          <p v-show="isShow">结果:</p>
+          <p v-for="item in resultList">
+            {{ item }}
+          </p>
         </div>
         <v-flex xs12 sm6 md3 style="font-size: 4vmin;margin: 5% 35% 0 35%">
           <v-text-field
             label="Text"
             placeholder="来点啊噗噜派.."
-            v-model="userGo"
-            v-on:blur="addToList"
+            v-model="newGo"
           ></v-text-field>
         </v-flex>
+        <v-btn fab dark small color="teal" @click="addToList">
+          <v-icon dark>add</v-icon>
+        </v-btn>
         <v-flex xs12 sm6 md3 style="font-size: 4vmin;margin: 2% 35% 0 35%">
           <v-text-field
             label="Num"
@@ -74,12 +75,19 @@
             v-model="count"
           ></v-text-field>
         </v-flex>
-        <v-btn sm6 outline color="indigo" v-on:click="showResult" style="margin: 0 60% 0 0;
-                  font-size: 2vmin">Finish</v-btn>
-      </ul>
 
+        <v-btn
+          fab
+          dark
+          small
+          color="teal"
+          v-on:click="setResult"
+          
+        >
+          <v-icon dark>done</v-icon>
+        </v-btn>
+      
     </div>
-
   </body>
   <script src="main.js"></script>
 </html>
