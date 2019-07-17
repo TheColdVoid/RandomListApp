@@ -9,7 +9,10 @@
       href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css"
       rel="stylesheet"
     />
-    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
     <script src="https://cdn.bootcss.com/lodash.js/4.17.14/lodash.min.js"></script>
     <script src="util.js"></script>
@@ -20,20 +23,15 @@
         margin: 10vh 0 20vh 0;
       }
 
-      
-
-      #list2 {
-        margin: 5% 0 0 0;
-      }
       p {
-        width: 10em;
-        margin: 0 35% 0 35%;
+       
+
         font-size: 4vmin;
       }
       button {
         color: rgb(15, 131, 125);
         background: #fff;
-        border: 1px solid rgb(15,131,125);
+        border: 1px solid rgb(15, 131, 125);
         border-radius: 12px;
         position: sticky;
         left: 65%;
@@ -41,52 +39,57 @@
       }
 
       hr {
-        margin: 5% 40% 5% 35%;
+        margin:1% 0 3% 0 ;
+      }
+     
+      section{
+        display: flex;
+      }
+      article {
+        flex: 1;
+        margin: 0 15% 0 15%;
+        width: 4vm;
       }
     </style>
   </head>
 
   <body>
     <div id="randomGo">
-      
-        <random-list v-for="item in currList" :go="item" @remove-go="removeGo">
-        </random-list>
-        <hr></hr>
-        <div id="list2">
-          <p v-show="isShow">结果:</p>
+      <v-flex xs12 sm6 md3 style="font-size: 4vmin;width:5vm;height:0%;margin: 0 40% 0 30%">
+        <v-text-field
+          label="Text"
+          placeholder="来点啊噗噜派.."
+          v-model="newGo"
+        ></v-text-field>
+      </v-flex>
+      <v-btn fab dark small color="teal" @click="addToList"
+      style="left:60%;">
+        <v-icon dark>add</v-icon>
+      </v-btn>
+      <v-flex xs12 sm6 md3 style="font-size: 4vmin;width:5vm;height:0%;margin: 0 40% 0 30%">
+        <v-text-field
+          label="Num"
+          placeholder="1"
+          v-model="count"
+        ></v-text-field>
+      </v-flex>
+      <v-btn fab dark small color="teal" v-on:click="setResult"
+      style="left:60%;margin: 0 0 2% 0">
+        <v-icon dark>done</v-icon>
+      </v-btn>
+      <hr>
+      </hr>
+      <section>
+        <article id="randomlist">
+          <random-list  v-for="item in currList" :go="item" @remove-go="removeGo">
+          </random-list>
+        </article>
+        <article id="resultlist">
           <p v-for="item in resultList">
             {{ item }}
           </p>
-        </div>
-        <v-flex xs12 sm6 md3 style="font-size: 4vmin;margin: 5% 35% 0 35%">
-          <v-text-field
-            label="Text"
-            placeholder="来点啊噗噜派.."
-            v-model="newGo"
-          ></v-text-field>
-        </v-flex>
-        <v-btn fab dark small color="teal" @click="addToList">
-          <v-icon dark>add</v-icon>
-        </v-btn>
-        <v-flex xs12 sm6 md3 style="font-size: 4vmin;margin: 2% 35% 0 35%">
-          <v-text-field
-            label="Num"
-            placeholder="1"
-            v-model="count"
-          ></v-text-field>
-        </v-flex>
-
-        <v-btn
-          fab
-          dark
-          small
-          color="teal"
-          v-on:click="setResult"
-          
-        >
-          <v-icon dark>done</v-icon>
-        </v-btn>
-      
+        </article>
+      </section>
     </div>
   </body>
   <script src="main.js"></script>
