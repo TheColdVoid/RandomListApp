@@ -20,10 +20,15 @@
     <title>Random Go!!XD</title>
     <style>
       html {
-        margin: 10vh 0 20vh 0;
+        margin: 10vmax 0 5vmax 0;
+        max-width: 100vmax;;
         
       }
-
+      @media (min-device-width: 1000px){
+        html{
+          margin: 10vmax 15vmax 5vmax 15vmax;
+        }
+      }
     
       button {
         color: rgb(15, 131, 125);
@@ -37,7 +42,7 @@
       }
 
       hr {
-        margin:1% 0 3% 0 ;
+        margin:5vmax 0 8vmax 0 ;
       }
      
       section{
@@ -53,26 +58,26 @@
 
   <body>
     <div id="randomGo">
-      <v-flex xs12 sm6 md3 style="font-size: 4vmin;width:5vm;height:25px;margin: 0 40% 0 30%">
+      <v-flex xs12 sm6 md3 style="font-size: 4vmin;width:5vm;height:25px;margin: 0 15vmax 0 25%">
         <v-text-field
-          label="Text"
+          label="候选项:"
           placeholder="来点啊噗噜派.."
           v-model="newGo"
         ></v-text-field>
       </v-flex>
       <v-btn fab dark small color="teal" @click="addToList"
-      style="left:60%;margin:0 0 0 6%;">
+      style="left:70%;margin:0 0 3vmax 6%;">
         <v-icon dark>add</v-icon>
       </v-btn>
-      <v-flex xs12 sm6 md3 style="font-size: 4vmin;width:5vm;height:25px;margin: 0 40% 0 30%">
+      <v-flex xs12 sm6 md3 style="font-size: 4vmin;width:5vm;height:25px;margin: 0 15vmax 0 25%">
         <v-text-field
-          label="Num"
+          label="选几个:"
           placeholder="1"
           v-model="count"
         ></v-text-field>
       </v-flex>
       <v-btn fab dark small color="teal" v-on:click="setResult"
-      style="left:60%;margin: 0 0 2% 6%">
+      style="left:70%;margin: 0 0 6% 6%">
         <v-icon dark>done</v-icon>
       </v-btn>
       <hr>
