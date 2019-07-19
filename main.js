@@ -8,7 +8,7 @@ var vm = new Vue({
     count: 1
   },
   components: {
-    'curr-list': {
+    'go-item': {
       props: ['go'],
       methods: {
         onRemoveGo: function(message){
@@ -17,7 +17,7 @@ var vm = new Vue({
       },
       template: '<div><p style="font-size: 4vmin;">{{go}}</p><button v-on:click="onRemoveGo(go)">x</button></div>'
     },
-    'result-list': {
+    'result-item': {
       props: ['result'],
       template: '<div><p style="font-size: 4vmin;">{{result}}</p><button style="visibility: hidden">x</button></div>'
     }

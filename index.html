@@ -85,15 +85,15 @@
       <section>
         <article id="randomlist">
           <v-icon color="teal lighten-2" large>sentiment_dissatisfied</v-icon>
-          <curr-list  v-for="item in currList" :go="item" @remove-go="removeGo"
+          <go-item  v-for="item in currList" :go="item" @remove-go="removeGo"
           style="margin:0 0 0 6vmax;color:rgb(32, 139, 182)">
-          </curr-list>
+        </go-item>
         </article>
         <article id="resultlist">
           <v-icon color="teal lighten-2" large>mood</v-icon>
-          <result-list v-for="item in resultList" :result="item"
+          <result-item v-for="item in resultList" :result="item"
           style="margin:0 0 0 6vmax;color:rgb(32, 139, 182)">
-        </result-list>
+        </result-item>
         </article>
       </section>
     </div>
