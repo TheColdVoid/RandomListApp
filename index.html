@@ -22,14 +22,14 @@
       html {
         margin: 10vmax 0 5vmax 0;
         max-width: 100vmax;;
-        
+
       }
       @media (min-device-width: 1000px){
         html{
           margin: 10vmax 15vmax 5vmax 15vmax;
         }
       }
-    
+
       button {
         color: rgb(15, 131, 125);
         background: #fff;
@@ -44,7 +44,7 @@
       hr {
         margin:5vmax 0 8vmax 0 ;
       }
-     
+
       section{
         display: flex;
       }
@@ -52,6 +52,14 @@
         flex: 1;
         margin: 0 0 0 12%;
         width: 6vm;
+      }
+      .result-list-enter-active {
+        transition: all .5s ease;
+      }
+      .result-list-enter, .result-list-leave-to
+        /* .list-leave-active for below version 2.1.8 */ {
+        opacity: 0;
+        transform: translateX(-40px);
       }
     </style>
   </head>
@@ -91,9 +99,14 @@
         </article>
         <article id="resultlist">
           <v-icon color="teal lighten-2" large>mood</v-icon>
-          <result-item v-for="item in resultList" :result="item"
-          style="margin:0 0 0 6vmax;color:rgb(32, 139, 182)">
-        </result-item>
+          <transition-group name="result-list" tag="div">
+            <result-item v-for="item in resultList" :result="item"
+                         style="margin:0 0 0 6vmax;color:rgb(32, 139, 182)"
+                         :key="item"
+            >
+            </result-item>
+
+          </transition-group>
         </article>
       </section>
     </div>

@@ -32,7 +32,10 @@ var vm = new Vue({
       return arrangedList;//输出随机排好的数组
     },
     setResult: function() {
-      this.resultList = randomChoice(this.count,this.currList);
+      this.resultList = [];
+      this.$nextTick(()=>{
+        this.resultList = randomChoice(this.count,this.currList);
+      });
     },
     removeGo: function(message){
       this.currList = this.currList.filter(it => it !== message);
