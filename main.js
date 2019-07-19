@@ -8,14 +8,18 @@ var vm = new Vue({
     count: 1
   },
   components: {
-    'random-list': {
+    'go-item': {
       props: ['go'],
       methods: {
         onRemoveGo: function(message){
           this.$emit('remove-go',message);
         }
       },
-      template: '<div><p>{{go}}</p><button v-on:click="onRemoveGo(go)">x</button></div>'
+      template: '<div><p style="font-size: 4vmin;">{{go}}</p><button v-on:click="onRemoveGo(go)">x</button></div>'
+    },
+    'result-item': {
+      props: ['result'],
+      template: '<div><p style="font-size: 4vmin;">{{result}}</p><button style="visibility: hidden">x</button></div>'
     }
   },
   methods: {
